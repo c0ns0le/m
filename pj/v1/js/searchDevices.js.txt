@@ -1,0 +1,7 @@
+var reqPayLoad = context.targetRequest.body.asJSON
+if(reqPayLoad!=null && reqPayLoad.search.filters.category.ALL==true){
+  context.setVariable("objectId", "3456");
+}else{
+   context.setVariable("objectId", "0000");
+}
+context.setVariable("dataType", "searchDevices");

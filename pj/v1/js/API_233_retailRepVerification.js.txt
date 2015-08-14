@@ -1,0 +1,17 @@
+var reqPayLoad = context.targetRequest.body.asJSON
+
+if(reqPayLoad!=null)
+{
+    context.setVariable('dataType', 'retailRepVerification');
+  
+    if(reqPayLoad.username=='johnsmith@mimomo.com' && reqPayLoad.password=='S0perS&ve')
+    {  
+      context.setVariable("objectId","1"); 
+    }
+  
+    else if(reqPayLoad.username=='johnsmith@mimomo.com' && reqPayLoad.password=='S0pe')
+    {  
+      context.setVariable("objectId","2"); 
+    }
+
+}

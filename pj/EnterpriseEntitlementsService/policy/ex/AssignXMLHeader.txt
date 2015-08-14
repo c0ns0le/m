@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignXMLHeader">
+    <DisplayName>AssignXMLHeader</DisplayName>
+    <FaultRules/>
+    <Properties/>
+ <Set>
+    <Headers>
+      <Header name="Content-Type">text/xml</Header>
+    </Headers>
+    <Payload>{callout.response.content}</Payload>
+  </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" >callout.response</AssignTo>
+</AssignMessage>

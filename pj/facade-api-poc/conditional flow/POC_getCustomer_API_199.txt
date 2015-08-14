@@ -1,0 +1,12 @@
+
+        <Flow name="POC_getCustomer_API_199">
+            <Description/>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>verifyAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/customers/{customerId}&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>

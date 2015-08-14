@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage enabled="true" continueOnError="false" async="false" name="AssignResponse">
+    <FaultRules/>
+    <Properties/>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="response">response</AssignTo>
+    <Set>
+    <Headers>
+    <Header name="Content-Type">application/json</Header>
+    </Headers>
+    <Payload contentType="application/json" variablePrefix="%" variableSuffix="#">
+      {
+    "user": {
+        "userId": "%request.queryparam.user_id#",
+        "storeId": "%request.queryparam.store_id#",
+        "dealerCode": "%dealerCode#"
+    },
+    %TrimmedUserEntitlementsBlockJSON#
+}
+
+    </Payload>
+    </Set>
+</AssignMessage>

@@ -1,0 +1,4 @@
+var payOff = context.getVariable("request.queryparam.payoff");
+var accid = context.getVariable("request.queryparam.accountId");
+context.setVariable("dataType", payOff);
+context.setVariable("objectId", accid);

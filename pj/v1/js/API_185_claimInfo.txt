@@ -1,0 +1,8 @@
+var request_payload = JSON.parse(context.getVariable('request.content'));
+var lineId  = context.getVariable('lineId');
+
+//Setting dataType variable
+context.setVariable('dataType', 'claimInfo');
+
+//Condition check to set objectId
+	context.setVariable('objectId', lineId);  

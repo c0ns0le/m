@@ -1,0 +1,26 @@
+var customerId = context.getVariable("customerId");
+var accountId = context.getVariable("accountId");
+var paymentArrangementId = context.getVariable("paymentArrangementId");
+
+var request_payload = '';
+if(context.getVariable('request.content')!=null&&context.getVariable('request.content')!='')
+{
+request_payload = JSON.parse(context.getVariable('request.content'));
+}
+
+
+if(customerId=='123321' && accountId=='123321' && paymentArrangementId=='123321')
+{
+  
+    context.setVariable('dataType', 'paymentArrangement');
+  
+    if(JSON.stringify(request_payload).indexOf('cancellation')>=0)
+    {
+    context.setVariable("objectId","checkingxxxx0202");  // Case 1
+    }
+    else if(JSON.stringify(request_payload).indexOf('paymentMethod')>=0)
+    {
+     context.setVariable("objectId","checkingxxxx0203"); // Case 2
+    }
+  
+}

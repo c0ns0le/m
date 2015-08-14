@@ -1,0 +1,15 @@
+var reqPayLoad = context.targetRequest.body.asJSON
+var firstName = reqPayLoad.firstName;
+var lastName = reqPayLoad.lastName;
+var address1 = reqPayLoad.addresses[0].address1
+
+if(firstName=='sam' && lastName=='smith' && address1=='123 king st'){
+  context.setVariable("objectId", "12345678");
+}else if((firstName==null || firstName=='') && (lastName==null || lastName=='') && address1=='123 king st'){
+  context.setVariable("objectId", "9988324");
+}else if((firstName==null || firstName=='') && (lastName==null || lastName=='') && address1=='123 T-Mobile Way Drive'){
+  context.setVariable("objectId", "1111111");
+}else{
+  context.setVariable("objectId", "");
+}
+

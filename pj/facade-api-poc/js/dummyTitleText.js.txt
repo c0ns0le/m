@@ -1,0 +1,1 @@
+response.content = '{"title": "Choosing a plan has never been this simple.","subtitle":"At T-Mobile, simple means one plan with everything. Our Simple Choice Plan comes with:"}';

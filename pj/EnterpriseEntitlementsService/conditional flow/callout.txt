@@ -1,0 +1,30 @@
+
+        <Flow name="callout">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>CallEnterpriseEntitlementsService</Name>
+                </Step>
+                <Step>
+                    <Name>AssignXMLHeader</Name>
+                </Step>
+                <Step>
+                    <Name>ExtractFromResponse</Name>
+                </Step>
+                <Step>
+                    <Name>AssignUserEntitlementsToVariable</Name>
+                </Step>
+                <Step>
+                    <Name>XMLtoJSONUserEntitlementsBlock</Name>
+                </Step>
+                <Step>
+                    <Name>TrimUserEntitlementsBlock</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AssignResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/callout&quot;)</Condition>
+        </Flow>

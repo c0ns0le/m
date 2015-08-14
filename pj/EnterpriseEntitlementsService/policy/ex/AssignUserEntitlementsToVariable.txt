@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignUserEntitlementsToVariable">
+  <DisplayName>AssignUserEntitlementsToVariable</DisplayName>
+  <FaultRules/>
+  <Properties/>
+  <Set>
+    <Headers>
+      <Header name="Content-Type">text/xml</Header>
+    </Headers>
+    <Payload>{userEntitlementsBlock}</Payload>
+  </Set>
+  <AssignTo createNew="false" transport="http" type="request"/>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

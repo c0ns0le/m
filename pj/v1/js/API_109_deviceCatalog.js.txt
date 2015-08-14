@@ -1,0 +1,15 @@
+var make=context.getVariable("request.queryparam.make");
+var model=context.getVariable("request.queryparam.model");
+ 
+ if(make=='Apple' && model=='iphone 5s')
+  {
+   context.setVariable("objectId","001");
+  }
+  else if(make=='Samsung' && model=='Galaxy-S5')
+  {
+    context.setVariable("objectId","002");
+  }
+  else if(make==null && model==null)
+  {
+    context.setVariable("objectId","003");
+  }

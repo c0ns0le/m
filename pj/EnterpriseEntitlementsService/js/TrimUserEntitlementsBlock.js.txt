@@ -1,0 +1,11 @@
+//extract UserEntitlements
+var userEntitlementsJSON = context.getVariable("UserEntitlementsBlockJSON");
+
+var parsedBlock = JSON.parse(userEntitlementsJSON);
+var newModifiedBlock = parsedBlock["userEntitlements"];
+newModifiedBlock = JSON.stringify(newModifiedBlock);
+
+//remove first and last brace
+newModifiedBlock = newModifiedBlock.substring(1, newModifiedBlock.length-1);
+
+context.setVariable("TrimmedUserEntitlementsBlockJSON",newModifiedBlock);

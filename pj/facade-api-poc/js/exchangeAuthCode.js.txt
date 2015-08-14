@@ -1,0 +1,44 @@
+/*
+
+take the auth code ('code') in the request and call IAM to exchange for access token
+detail of this call is in https://twire.t-mobile.com/docs/DOC-8283 section 2.1.1
+
+value needed for this call
+1. url = https://uat.account.tmus.net/oauth2-api/p/v1/token
+2. client_id = A-OC-_lpqSOr_
+3. client_secret = P57qDwTLeh
+4. return_uri = this should come from query string
+
+if this call success, 
+set oauth_external_authorization_status to true 
+set iam_access_token to the value in the response
+
+*/
+
+/*
+var url = 'https://uat.account.tmus.net/oauth2-api/p/v1/token';
+var client_id = 'A-OC-_lpqSOr_';
+var client_secret = 'P57qDwTLeh';
+var return_uri = proxyRequest.queryParams['redirect_uri'];
+var auth_code = proxyRequest.queryParams['code'];
+
+var headers = {Content-Type: 'application/x-www-form-urlencoded'};
+var body = {client_id:'A-OC-_lpqSOr_', client_secret:'P57qDwTLeh',code:auth_code, grant_type:'authorization_code'};
+
+var myRequest = new Request(url,"POST",headers,JSON.stringify(body));
+var req = httpClient.send(myRequest);
+
+req.waitForComplete();
+var response = req.getResponse();
+
+if(response.status == 200) {
+ var result = response.content.asJSON;
+ context.setVariable('oauth_external_authorization_status',true);
+ context.setVariable('iam_access_token',result.access_token);
+}
+*/
+
+
+context.setVariable('oauth_external_authorization_status',true);
+context.setVariable('iam_access_token','iamIAMaccesstoken');
+

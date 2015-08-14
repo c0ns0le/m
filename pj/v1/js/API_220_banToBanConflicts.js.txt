@@ -1,0 +1,11 @@
+var request_payload = '';
+
+if(context.getVariable('request.content')!=null&&context.getVariable('request.content')!='') {
+	request_payload = JSON.parse(context.getVariable('request.content'));
+}
+
+if (request_payload.lines[0].id == '2061234567') {
+
+	context.setVariable("objectId", "2061234567");
+  	context.setVariable("dataType","banToBanConflicts");
+}

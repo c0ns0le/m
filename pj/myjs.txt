@@ -1,0 +1,54 @@
+ var request_payload = '';
+if(context.getVariable('request.content')!=null&&context.getVariable('request.content')!='')
+{
+request_payload = JSON.parse(context.getVariable('request.content'));
+}
+
+var userid = request_payload.userid;
+
+var role = request_payload.roles[0];
+
+var url = 'http://faisalhabibansari-test.apigee.net/v1/api2';
+var payload = {'role' : role };
+var headers = {'Content-Type' : 'application/json'};
+var myRequest = new Request(url,"POST",headers,JSON.stringify(payload));
+var req = httpClient.send(myRequest);
+req.waitForComplete();
+var response = req.getResponse().content.asJSON;
+
+
+var path = response.enabledRoutes[0];
+
+
+var url1 = 'http://faisalhabibansari-test.apigee.net/v1/api3';
+var payload1 = {'path' : path };
+var myRequest1 = new Request(url1,"POST",headers,JSON.stringify(payload1));
+var req1 = httpClient.send(myRequest1); 
+req1.waitForComplete();
+var response1 = req1.getResponse().content.asJSON;
+
+
+var user =  {"userid" : userid}
+var permissions = {};
+var roles = {"user":[response.roleName]}
+var permissions = {};
+permissions.roles = roles
+var uiElements = {}; 
+var usr ={};
+var ele = {};
+var route =response1.route;
+for (i = 0; i < response1.uiElements.length; i++)
+{
+var element = response1.uiElements[i].uiElement;
+ele[element] = response1.uiElements[i].control;
+}
+usr[route] =ele  
+uiElements.user = usr;
+permissions.uiElements = uiElements;
+
+var finalResponse = {}; 
+finalResponse.user = user;
+finalResponse.permissions =permissions;
+
+
+context.proxyResponse.content = JSON.stringify(finalResponse); 

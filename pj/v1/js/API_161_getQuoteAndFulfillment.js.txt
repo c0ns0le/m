@@ -1,0 +1,89 @@
+var customerID = context.getVariable("customerID");
+var accountID = context.getVariable("accountID");
+var msisdn = context.getVariable("lineID");
+var deviceID = context.getVariable("deviceID");
+
+var request_payload = '';
+if(context.getVariable('request.content')!=null&&context.getVariable('request.content')!='')
+{
+request_payload = JSON.parse(context.getVariable('request.content'));
+}
+
+if(accountID=='123123'&& msisdn=='2061231234')
+{
+  context.setVariable("objectId",msisdn); // Case 1
+}
+else if(accountID=='123123'&& msisdn=='2061230066' && deviceID=='30')
+{
+   context.setVariable("objectId",msisdn);
+}
+else if((accountID=='123123'&& msisdn=='2061238566') || 
+  		(accountID=='123123'&& msisdn=='2061233333'))
+{
+  
+  if(JSON.stringify(request_payload).indexOf('questionAndAnswerResponse')>=0)
+    {
+    context.setVariable("objectId","2061238566003");  // Case 3
+    }
+    else
+    {
+     context.setVariable("objectId","2061238566002"); // Case 2
+    }
+  
+}
+
+else if(accountID=='123123'&& msisdn=='2061239876')
+{
+  context.setVariable("objectId",msisdn);  // Case 4
+}
+else if(accountID=='123123'&& msisdn=='2061234321' || deviceID=='2' || deviceID=='3')
+{
+  context.setVariable("objectId",msisdn);  // Case 5
+}
+/*else if(accountID=='123123'&& msisdn=='2061236789')
+{
+  context.setVariable("objectId","2061236789006");  // Case 6
+}*/
+else if(accountID=='123123'&& msisdn=='2061236789' && customerID=='1235')
+{
+  context.setVariable("objectId","2061236789010");  // Case 10
+}
+else if(accountID=='123123'&& msisdn=='2061236789' && (deviceID=='01' || deviceID=='9')||(customerID=='1239' && accountID=='123123'&& msisdn=='2061231111' || deviceID=='17' || deviceID=='18'))
+{
+  context.setVariable("objectId","2061236789010");  // Case 10
+}
+/*else if(accountID=='123123'&& msisdn=='2061230000')
+{
+  context.setVariable("objectId","2061230000007");  // Case 7
+}*/
+else if((accountID=='123123'&& msisdn=='2061230000') && (deviceID=='01' || deviceID == '10'|| deviceID == '11' || deviceID == '12') || (accountID =='123123'&& msisdn == '2061230011' || deviceID =='24' || deviceID =='25'))
+{
+  context.setVariable("objectId","2061230000009");  // Case 9
+}
+else if(accountID=='123123' && msisdn=='2061234567')
+{
+  context.setVariable("objectId",msisdn);  // Case 8
+}
+else if((customerID=='1234' && accountID =='123123'&& msisdn == '2061237482'&& deviceID =='15') || (customerID =='1202' && accountID =='123123'&& msisdn =='2061237482'&& deviceID == '15'))
+{
+  context.setVariable("objectId",msisdn);  // Case 11
+}
+else if(customerID=='1238' && accountID =='123123'&& msisdn == '2061233333'&& deviceID =='20')
+{
+  context.setVariable("objectId",msisdn); 
+}
+
+else if((accountID =='123123'&& msisdn == '2061232222'&& deviceID =='19') ||
+       (accountID =='123123'&& msisdn == '2061230022'&& deviceID =='26')  ||
+  		(accountID =='123123'&& msisdn == '2061234444' && deviceID =='21')||
+        (accountID =='123123'&& msisdn == '2061234444' && deviceID =='22')||
+		(accountID =='123123'&& msisdn == '2061235555' && deviceID =='23')||
+        (accountID=='123123' && msisdn=='2061232222' && deviceID=='19') ||
+        (accountID=='123123' && msisdn=='2061230022' && deviceID=='26') ||
+        (accountID=='123123' && msisdn=='2061235555' && deviceID=='23'))
+  
+{
+  context.setVariable("objectId","206123222201");
+}
+
+

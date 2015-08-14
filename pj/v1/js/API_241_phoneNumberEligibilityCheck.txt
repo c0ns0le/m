@@ -1,0 +1,16 @@
+var reqPayload = context.targetRequest.body.asJSON
+
+context.setVariable("dataType", "phoneNumberEligibilityCheck");
+
+if(reqPayload!= null && reqPayload!=""){
+  
+  var zipCode = reqPayload.zipCode;
+  	if(zipCode=='98006'){  
+  		context.setVariable("objectId", "98006");
+	}else if(zipCode=='98004'){
+		context.setVariable("objectId", "98004");
+	}
+  
+}else{
+	  	context.setVariable("objectId","0000");
+}

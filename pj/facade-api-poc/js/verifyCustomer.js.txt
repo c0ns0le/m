@@ -1,0 +1,3 @@
+var result = {'success':true};
+
+context.proxyResponse.content = JSON.stringify(result);

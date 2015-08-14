@@ -1,0 +1,8 @@
+var reqPayLoad = context.targetRequest.body.asJSON
+
+if(reqPayLoad!=null && reqPayLoad.firstName=='john'){ 
+    context.setVariable("objectId", "11111");
+}else{
+    context.setVariable("objectId", "0000");
+}
+context.setVariable("dataType", "contactSalesRep");

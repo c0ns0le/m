@@ -1,0 +1,64 @@
+/*var services = context.getVariable('services');
+var url = services.core + '/customer?lastname=smurf&msisdn=012345678911&offset=df&limit=fd';
+
+//var body = request.content.asJSON;
+//var req = new Request(url,'GET',{},JSON.stringify(body));
+var req = httpClient.get(url); 
+req.waitForComplete();
+
+var res = req.getResponse();
+var result = res.content.asJSON;
+
+var customers = [];
+var customer = {};
+customer.ban = 12345678;
+customer.name = result[0].party.organization.organizationContact[0].personName[0].fullName;
+customer.msdn = result[0].party.organization.organizationContact[0].securityProfile.msisdn;
+customer.billingAccount = 'Jane';
+customer.device = 'iPhone 5';
+customer.balance = 100.00;
+
+customers.push(customer);
+
+//response.status.code = res.status;
+
+context.proxyResponse.content = JSON.stringify(customers); */
+
+
+/* mock start here */
+//var services = context.getVariable('services');
+//var url = services.core + '/customer?lastname=smurf&msisdn=012345678911&offset=df&limit=fd';
+
+var customerId = context.getVariable('customerId');
+var url = 'http://t-mobile-prod.apigee.net/customer/CUST1234';
+
+var req = httpClient.get(url);
+req.waitForComplete();
+var response = req.getResponse().content.asJSON;
+var coreCustomer = response[0];
+var customers = [];
+var customer = {};
+
+//Mocking customer
+/*customer.ban = 12345678;
+customer.name = 'Jane Doe';
+customer.msdn = '+1 312-101-1234';
+customer.ban = 12345678;
+customer.billingAccount = 'Jane';
+customer.device = 'iPhone 5';
+customer.balance = 100.00;*/
+
+//Using core
+var phoneFirst3 = coreCustomer.party.person.phoneCommunication[0].phoneNumber.substring(0,3);
+var phoneLast4 = coreCustomer.party.person.phoneCommunication[0].phoneNumber.substring(3,7);
+customer.name = coreCustomer.party.person.personName.fullName;
+customer.msdn = coreCustomer.party.person.phoneCommunication[0].areaCode + '-' + phoneFirst3 + '-' + phoneLast4; //+ '-' + coreCustomer.party.person.phoneCommunication[0].phoneNumber.substring(0,3) + '-' + coreCustomer.party.person.phoneCommunication.phoneNumber[0].substring(3,4);
+customer.ban = 12345678;
+customer.billingAccount = 'Jane';
+customer.device = 'iPhone 5';
+customer.balance = 100.00;
+customers.push(customer);
+
+//response.status.code = res.status;
+
+context.proxyResponse.content = JSON.stringify(customers);/**/

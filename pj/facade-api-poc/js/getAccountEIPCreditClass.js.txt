@@ -1,0 +1,41 @@
+/*var customerId = context.getVariable('customerId');
+var accountId = context.getVariable('accountId');
+var url = 'http://t-mobile-test.apigee.net/tmo/v1/customers/'+customerId+'/accounts/'+accountId+'/credit-summary';
+
+var req = httpClient.get(url);
+req.waitForComplete();
+var response = req.getResponse().content.asJSON;
+
+context.proxyResponse.content = JSON.stringify(response);*/
+
+var customerId = context.getVariable('customerId');
+
+var url1 = 'http://t-mobile-prod.apigee.net/customer/'+customerId+'/creditprofile';
+
+var req1 = httpClient.get(url1);
+req1.waitForComplete();
+
+var finalResponse = {};
+
+var response1 = req1.getResponse().content.asJSON;
+
+finalResponse.creditClass = response1[0].classificationCode;
+
+finalResponse.creditCheckRequired = response1[0].creditCheckRequiredIndicator;
+
+var url2 = 'http://t-mobile-prod.apigee.net/customer/'+customerId+'/newlineeligibility';
+
+var req2 = httpClient.get(url2);
+req2.waitForComplete();
+
+var response2 = req2.getResponse().content.asJSON;
+
+var financialAccount = [];
+var contract={};
+
+contract.contractStartDate = response2[0][0].depositInfo[0].depositAmount;
+financialAccount[0]=contract;
+
+finalResponse.financialAccountEip=financialAccount;
+
+context.proxyResponse.content = JSON.stringify(finalResponse);

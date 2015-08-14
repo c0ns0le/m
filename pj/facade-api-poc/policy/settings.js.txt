@@ -1,0 +1,4 @@
+// We can move this to some Key Value service or storage later
+var services = {};
+services.core = "http://t-mobile-test.apigee.net";
+context.setVariable('services',services);

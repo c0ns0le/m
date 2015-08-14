@@ -1,0 +1,12 @@
+
+        <Flow name="submitPayment">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>submitPayment</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/customers/{customerId}/accounts/{accountId}/payments&quot;) and (request.verb = &quot;POST&quot;)</Condition>
+        </Flow>

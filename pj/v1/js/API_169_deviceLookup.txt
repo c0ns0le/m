@@ -1,0 +1,71 @@
+
+// FOR API 169 having url /v1/customers/{customerID}/devices
+//query parameter
+var imei=context.getVariable("request.queryparam.imei");
+var esn=context.getVariable("request.queryparam.esn");
+var meid=context.getVariable("request.queryparam.meid");
+var macId=context.getVariable("request.queryparam.macid");
+
+context.setVariable("dataType","deviceLookup");
+
+if (esn!=null && meid==null && macId==null && imei==null) {
+ 	context.setVariable("objectId",esn); 
+}
+
+else if (esn==null && meid!=null && macId==null && imei==null){
+ 	context.setVariable("objectId",meid); 
+}
+
+else if (esn==null && meid==null && macId!=null && imei==null){
+ 	context.setVariable("objectId", macId); 
+}
+
+else if (esn==null && meid==null && macId==null && imei!=null){
+ 	context.setVariable("objectId", imei); 
+}
+	/*if( esn==null && meid==null && macId==null && imei != null && imei=='354904008327814'){
+		context.setVariable("objectId",imei);
+	
+    }else if( meid==null && imei==null && macId==null && esn!=null && esn=='1BCC5FDF'){
+		context.setVariable("objectId",esn);				
+	
+    }else if( esn==null && imei==null && macId==null && meid!=null && meid=='268435456010201020'){
+		context.setVariable("objectId",meid);
+	
+    }else if(esn==null && meid==null && macId==null && imei!=null && imei=='356489052784746'){
+		context.setVariable("objectId",imei);
+	
+    }else if(esn==null && meid==null && macId==null && imei!=null && imei== '535934655968752'){
+		context.setVariable("objectId",imei);
+	
+    }else if(esn==null && meid==null && macId==null && imei!=null && imei=='380332443958274'){
+		context.setVariable("objectId",imei);
+	
+    } else if (esn==null && meid==null && imei==null && macId!=null && macId=='0123.4567.89ab'){
+		context.setVariable("objectId",macId);
+	
+    } else if (esn=='1BCC5FDA' && meid==null && imei==null && macId==null && esn!=null) {
+     	context.setVariable("objectId",esn); 
+      
+    } else if (esn=='1BCC5FDB' && meid==null && imei==null && macId==null && esn!=null) {
+     	context.setVariable("objectId",esn); 
+    }
+
+//	else {
+//		context.setVariable("objectId","000");
+//	}
+*/
+
+// FOR API 194 having url /v1/customers/{customerID}/devices
+else if (esn==null && meid==null && imei==null && macId==null && esn==null) {
+        
+        var objectId = context.getVariable("objectId");
+        context.setVariable("dataType","deviceDetails");
+     	context.setVariable("objectId",objectId); 
+    }
+
+	else {
+		context.setVariable("objectId","000");
+	}
+
+

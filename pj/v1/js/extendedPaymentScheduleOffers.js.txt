@@ -1,0 +1,16 @@
+var noOfInstallments=context.getVariable("request.queryparam.noOfInstallments");
+var amount = context.getVariable("request.queryparam.amount");
+
+if(noOfInstallments!=null && noOfInstallments!='' && amount!=null && amount!=''){
+  
+  if(noOfInstallments =='4' && amount =='180'){
+ 	 context.setVariable('objectId', '001');  
+  }else if(noOfInstallments =='2' && amount =='80')	{
+    context.setVariable('objectId', '002');
+  }else if (noOfInstallments =='3' && amount =='90') {
+  	context.setVariable('objectId', '003');
+  }
+
+}else if((noOfInstallments==null || noOfInstallments=='') && (amount==null || amount=='')){
+  context.setVariable('objectId', '000');  
+}

@@ -1,0 +1,12 @@
+
+        <Flow name="getAccountHistory">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>getAccountHistory</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/customers/{customerId}/accounts/{accountId}/payment-history&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>

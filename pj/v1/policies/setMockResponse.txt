@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="setMockResponse">
+    <DisplayName>setMockResponse</DisplayName>
+  	<Add>     
+    <Headers>      
+        <Header name="x-mock-uuid">{mockResponse.entities[0].uuid}</Header>    
+    </Headers> 
+	</Add>
+    <Set>
+       <Payload contentType="application/json">
+        {mockData}
+       </Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

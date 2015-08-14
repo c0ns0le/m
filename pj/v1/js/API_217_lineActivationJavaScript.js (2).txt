@@ -1,0 +1,27 @@
+var reqPayload = context.targetRequest.body.asJSON
+var custId = context.getVariable("customerId");
+var accId = context.getVariable("accountId");
+var lineId = context.getVariable("lineId");
+
+if(reqPayload!=null && reqPayload!=''){
+  
+  	var accountType = reqPayload.accountType;
+  
+	if(custId=='100' && accId=='200' && lineId=='2061234567'){
+	  context.setVariable("objectId", "2061234567");
+	}else if(custId=='1234566' && accId=='1230123' && lineId=='2062227777'){
+	  context.setVariable("objectId", "2061234567");
+	}else if(custId=='1234567' && accId=='1330124' && lineId=='216228888'){
+	  context.setVariable("objectId", "2061234567");
+	}else if(custId=='1234569' && accId=='1330125' && lineId=='216228889'){
+	  context.setVariable("objectId", "2061234567");
+	}else if(custId=='1234570' && accId=='1330125' && lineId=='2162228889'){
+	  context.setVariable("objectId", "2061234567");
+	}else if(custId=='1234570' && accId=='1234123' && lineId=='2065551234' && accountType=='Prepaid'){
+	  context.setVariable("objectId", "001");
+	}else if(custId=='1234570' && accId=='1234123' && lineId=='2065551234' && accountType=='Postpaid'){
+	  context.setVariable("objectId", "002");
+	}
+}else{
+  context.setVariable("objectId", "");
+}

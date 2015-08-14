@@ -1,0 +1,11 @@
+var services = context.getVariable('services');
+var customerId = context.getVariable('customerId');
+var url = services.core + '/customer/' + customerId + '/customeraccount';
+
+var req = httpClient.get(url);
+req.waitForComplete();
+var coreAccount = req.getResponse().content.asJSON;
+
+context.proxyResponse.content = JSON.stringify(coreAccount);
+
+//context.proxyResponse.content = url;

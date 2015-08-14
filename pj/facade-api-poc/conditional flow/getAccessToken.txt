@@ -1,0 +1,21 @@
+
+        <Flow name="getAccessToken">
+            <Description/>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>validateAuthCookie</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>getAccessTokenOAuth</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>getEnterpriseEntitlement</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/access-token&quot;) and (request.verb = &quot;POST&quot;)</Condition>
+        </Flow>

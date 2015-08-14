@@ -1,0 +1,15 @@
+var storeId = context.getVariable("objectId");
+
+var request_payload = '';
+if(context.getVariable('request.content')!=null && context.getVariable('request.content')!='') {  
+	request_payload = JSON.parse(context.getVariable('request.content'));
+}
+
+context.setVariable('dataType', 'retailStores_update');
+
+if(storeId == '1000' && request_payload.status =='open') {
+    context.setVariable("objectId", "1000");
+}
+else if (storeId == '1000' && request_payload.status =='closed') {
+    context.setVariable("objectId", "0000");
+}

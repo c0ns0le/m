@@ -1,0 +1,32 @@
+var request_payload = JSON.parse(context.getVariable('request.content'));
+
+//Grabbing lineId from context/URL 
+var acctId=context.getVariable("acctId");
+//console.log('acctId='+acctId);
+
+//Setting dataType variable
+//context.setVariable('dataType', 'customerAccounts');
+
+var addressLength=request_payload.addresses.length;
+//console.log('addressLength='+addressLength);
+//Condition check to set objectId
+if(addressLength==1) {
+  //Getting length of device array in JSON payload
+	var addressType=request_payload.addresses.type;
+ // 	console.log('addressType='+addressType);
+  
+	var setAddToAllLines = request_payload.set911AddressToAllLines;
+//	console.log('setAddToAllLines='+setAddToAllLines);
+  
+//Condition check to set objectId
+	if(addressType=="911" && setAddToAllLines==true) {
+		context.setVariable('objectId', acctId);
+  //    	console.log('objectId='+objectId);
+	}
+  	else if(addressType=="PPU" && setAddToAllLines==true) 
+    {
+		context.setVariable('objectId', acctId);
+  //    	console.log('objectId='+objectId);
+	}
+}
+

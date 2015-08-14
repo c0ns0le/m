@@ -1,0 +1,12 @@
+
+        <Flow name="getDummyTitleText">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>dummyTitleText</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/title-text&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>

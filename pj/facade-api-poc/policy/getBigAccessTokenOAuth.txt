@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="true" name="getBigAccessTokenOAuth">
+    <DisplayName>getBigAccessTokenOAuth</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Attributes/>
+    <ExternalAuthorization>true</ExternalAuthorization>
+    <Operation>GenerateAccessToken</Operation>
+    <SupportedGrantTypes> <!-- Optional -->
+        <GrantType>client_credentials</GrantType>
+    </SupportedGrantTypes>
+    <Attributes> 
+      <Attribute name="iam_access_token" ref="iam_access_token" display="true"></Attribute>    
+    </Attributes>
+    <GenerateResponse enabled="true">
+        <Format>FORM_PARAM</Format>
+    </GenerateResponse>
+<!--    <ExternalAccessToken>request.queryparam.externalAccessToken</ExternalAccessToken> -->
+	<StoreToken>true</StoreToken> 
+    <Tokens/>
+</OAuthV2>

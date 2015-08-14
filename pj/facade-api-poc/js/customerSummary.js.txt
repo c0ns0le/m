@@ -1,0 +1,51 @@
+var customerId = context.getVariable('id');
+//var url = 'http://t-mobile-test.apigee.net/tmo/v1/customers/' + customerId + '/summary';
+
+var url = 'http://t-mobile-prod.apigee.net/customer/' + customerId;
+var req = httpClient.get(url);
+req.waitForComplete();
+var customerData = req.getResponse().content.asJSON;
+
+/*customerData*/
+
+context.proxyResponse.content = JSON.stringify(customerData);
+
+/*if (exchange.isSuccess()) {
+    var responseObj = exchange.getResponse().content.asJSON;
+
+    if (responseObj.error) {
+      throw new Error(responseObj.error_description);
+    }
+}*/
+
+/*
+//hitting financial Account Core API service
+
+
+url = 'http://t-mobile-prod.apigee.net/financialaccount?customerid='+customerId;
+var req = httpClient.get(url);
+req.waitForComplete();
+
+var response = req.getResponse().content.asJSON;
+var FinancialAccount = response[0];
+var accounts = {};
+
+accounts[].id = FinancialAccount.financialAccountId;
+accounts[].type = FinancialAccount.AccountType.typeCode;
+accounts[].category = FinancialAccount.billingMethod;
+accounts[].name = FinancialAccount.accountName;
+
+accounts[].lines[].id = FinancialAccount.LineOfService[].lineOfServiceId;
+accounts[].lines[].msisdn = FinancialAccount.LineOfService[].NetworkResource[].MobileNumber;
+accounts[].lines[].lineType = FinancialAccount.LineOfService[].lineType;
+
+
+//hitting LineOfService Core API service
+
+url = 'http://t-mobile-prod.apigee.net/lineofservice/1/';
+var req = httpClient.get(url);
+req.waitForComplete();
+
+var response = req.getResponse().content.asJSON;
+var FinancialAccount = response[0];
+*/

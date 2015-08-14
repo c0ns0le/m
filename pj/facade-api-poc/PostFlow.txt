@@ -1,0 +1,10 @@
+
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <FaultRules/>
+                <Name>addCORS</Name>
+            </Step>
+        </Response>
+    </PostFlow>

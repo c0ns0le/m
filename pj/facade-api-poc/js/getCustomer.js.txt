@@ -1,0 +1,31 @@
+var services = context.getVariable('services');
+var customerId = context.getVariable('customerId');
+var url = services.core + '/v2/customer/' + customerId;
+
+var req = httpClient.get(url);
+req.waitForComplete();
+var coreCustomer = req.getResponse().content.asJSON;
+
+var customer = {};
+
+customer.repId = context.getVariable('accesstoken.loggedinUserId');
+customer.id = coreCustomer.customer.customerId;
+customer.firstName = coreCustomer.customer.party.person.personName.firstName;
+customer.lastName = coreCustomer.customer.party.person.personName.familyName;
+
+var address = {};
+var coreAddress = coreCustomer.customer.party.person.addressCommunication.address;
+
+address.line1 = coreAddress.addressLine1;
+address.cityName = coreAddress.cityName;
+address.zip = coreAddress.postalCodeExtension;
+address.state = coreAddress.stateName;
+address.country = coreAddress.countryCode;
+
+customer.address = address;
+customer.phoneNumber = coreCustomer.customer.party.person.phoneCommunication.phoneNumber;
+
+
+context.proxyResponse.content = JSON.stringify(customer);
+
+//context.proxyResponse.content = url;

@@ -1,0 +1,9 @@
+
+var deviceId=context.getVariable("request.queryparam.deviceId");
+
+if(deviceId!=null && deviceId!=''){
+	context.setVariable("objectId",deviceId);
+}else{
+	context.setVariable("objectId","1111");
+}
+context.setVariable("dataType", "plans");

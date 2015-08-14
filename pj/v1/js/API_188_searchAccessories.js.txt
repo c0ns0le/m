@@ -1,0 +1,13 @@
+var q = context.getVariable("request.queryparam.q");
+var limit = context.getVariable("request.queryparam.limit");
+var sort = context.getVariable("request.queryparam.sort");
+var filter = context.getVariable("request.queryparam.filter");
+
+context.setVariable("dataType","searchAccessories");
+
+
+if(q != null && q == 'bluetooth') {  
+ 	context.setVariable("objectId","150001");
+}else if(q == 'headset' && limit == '10' && sort == 'color' && filter == 'best_seller') {
+	context.setVariable("objectId","123451"); 
+}

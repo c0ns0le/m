@@ -1,0 +1,16 @@
+var id = context.getVariable("objectId");
+var reqPayLoad = context.targetRequest.body.asJSON;
+if(id!=null && id == '1200') {
+	if (!(reqPayLoad instanceof Array) && reqPayLoad.promotions[0].id == 'TMOBILESAVE25'){
+		context.setVariable("objectId",reqPayLoad.promotions[0].id);
+	}else if (reqPayLoad instanceof Array && reqPayLoad[0].productId == '10001') {
+		context.setVariable("objectId","10003");
+	}else{
+	   context.setVariable("objectId","0000");
+	}
+}else if (reqPayLoad instanceof Array && reqPayLoad[0].productId == '10001') {
+	context.setVariable("objectId",reqPayLoad[0].productId);
+}else{
+	context.setVariable("objectId","0000");
+}
+context.setVariable("dataType","addToCart");

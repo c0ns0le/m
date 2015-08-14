@@ -1,0 +1,15 @@
+var reqPayLoad = context.targetRequest.body.asJSON
+context.setVariable("dataType","postCancellations");
+var status = reqPayLoad.cancellation.accounts[0].lines[0].status;
+var shutOffDate = reqPayLoad.cancellation.accounts[0].lines[0].shutOffDate;
+if(reqPayLoad!=null && reqPayLoad!=''){ 
+	if(status=='undo' && shutOffDate==null){
+		context.setVariable("objectId", "1006");
+	}else if(status==null && shutOffDate != null){    
+    context.setVariable("objectId", "1005");   
+  }else{
+    context.setVariable("objectId", "");
+  }
+}else{
+    context.setVariable("objectId", "");
+}

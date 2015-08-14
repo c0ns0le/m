@@ -1,0 +1,10 @@
+var reqPayLoad = context.targetRequest.body.asJSON
+var custId = context.getVariable("customerId");
+var accId = context.getVariable("accountId");
+if(reqPayLoad!=null && custId=='234234235' && accId=='211234'){
+  
+    	context.setVariable("objectId", "5089444941");
+}else{
+  context.setVariable("objectId", "");
+}
+

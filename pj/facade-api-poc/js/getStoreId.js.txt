@@ -1,0 +1,11 @@
+var services = context.getVariable('services');
+var macAddress = context.proxyRequest.queryParams['macAddress']
+//var url = services.core + '/store?macaddress=' + macAddress;
+var url = 'http://t-mobile-prod.apigee.net/store?macaddress=' + macAddress;
+
+var req = httpClient.get(url);
+req.waitForComplete(4000);
+context.proxyResponse.content = req.getResponse().content;
+
+
+//context.proxyResponse.content = url;

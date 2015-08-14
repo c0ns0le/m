@@ -1,0 +1,11 @@
+//var oamCookie = context.proxyRequest.headers['oam_cookie'];
+var oamCookie = context.proxyRequest.queryParams['externalAccessToken'];
+
+// this is for CARE and RETAIL, once we got the cookie call oam to verify the cookie
+// detail for this call pending specs e.g. url , request payload 
+// base on that result set 'oauth_external_authorization_status' below
+// if there is more data needed to be set for login in user, set here and add it to 'getAccessTokenOAuth' policy
+
+context.setVariable('oam_cookie',oamCookie);
+context.setVariable('loggedinUserId',context.proxyRequest.queryParams['loggedinUserId']);
+context.setVariable('oauth_external_authorization_status',true);

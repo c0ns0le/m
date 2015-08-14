@@ -1,0 +1,12 @@
+
+        <Flow name="getStoreId">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>getStoreId</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/store&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>

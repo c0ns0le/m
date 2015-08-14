@@ -1,0 +1,10 @@
+var id = context.getVariable("ratePlanId")
+
+if(id!=null && id!=''){
+  //API_170_getRatePlan
+  context.setVariable("objectId",id);
+}
+else{
+  //API_170_getRatePlan_List
+  context.setVariable("objectId",'000');
+}

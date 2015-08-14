@@ -1,0 +1,12 @@
+
+        <Flow name="POC_getFinancialAccountDetails_API_128">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>balanceDue</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/customer/{customerId}/cancellation/balanceDue&quot;) and (request.verb = &quot;POST&quot;)</Condition>
+        </Flow>

@@ -1,0 +1,50 @@
+var customerId = context.getVariable('customerId');
+//var url = 'http://t-mobile-test.apigee.net/tmo/v1/customers/'+customerId;
+
+var url1 = 'http://t-mobile-prod.apigee.net/customer/' + customerId;
+var url2 = 'http://t-mobile-prod.apigee.net/customer/'+customerId+'/creditprofile';
+
+var req = httpClient.get(url1);
+req.waitForComplete();
+var response = req.getResponse().content.asJSON;
+var coreCustomer = response[0];
+var customer = {};
+
+customer.id = coreCustomer.customerId;
+customer.firstName = coreCustomer.party.person.personName.firstName
+customer.middleName = coreCustomer.party.person.personName.middleName[0]
+customer.lastName = coreCustomer.party.person.personName.familyName[0];
+customer.email = coreCustomer.party.person.emailCommunication[0].emailAddress
+customer.role = ""
+customer.tenure = ""
+
+
+
+
+var addresses = [];
+var addLength = coreCustomer.party.person.addressCommunication.length
+var i;
+var address;
+for(i=0;i<addLength;i++){
+    address={}
+    address.id =  coreCustomer.party.person.addressCommunication[i].id
+    address.type = coreCustomer.party.person.addressCommunication[i].address.addressFormatType
+    address.addressLine1 = coreCustomer.party.person.addressCommunication[i].address.addressLine1
+    address.addressLine2 = coreCustomer.party.person.addressCommunication[i].address.addressLine2
+    address.cityName = coreCustomer.party.person.addressCommunication[i].address.cityName
+    address.stateCode = coreCustomer.party.person.addressCommunication[i].address.stateCode
+    address.zip = coreCustomer.party.person.addressCommunication[i].address.postalCode
+    address.zipExt = coreCustomer.party.person.addressCommunication[i].address.postalCodeExtension
+    address.default = coreCustomer.party.person.addressCommunication[i].preference.preferred
+    addresses.push(address);
+}
+
+customer.addresses = addresses
+req = httpClient.get(url2);
+req.waitForComplete();
+response = req.getResponse().content.asJSON;
+
+coreCustomer = response[0];
+customer.creditRating = coreCustomer.creditRatingCode
+
+context.proxyResponse.content = JSON.stringify(customer);

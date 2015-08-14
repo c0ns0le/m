@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="getUrlVars">
+    <DisplayName>getUrlVars</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <URIPath name="name">
+      	<Pattern ignoreCase="true">/customers/{customerId}</Pattern>        
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts</Pattern> 
+        <Pattern ignoreCase="true">/customers/{id}/summary</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/credit-summary</Pattern>
+        <Pattern ignoreCase="true">/customer/{customerId}/cancellation/balanceDue</Pattern>
+      	<Pattern ignoreCase="true">/customers/{customerId}/general-profile</Pattern>
+    </URIPath>
+</ExtractVariables>

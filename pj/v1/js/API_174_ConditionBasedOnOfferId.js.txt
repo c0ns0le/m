@@ -1,0 +1,8 @@
+//Get 'objectId' from the context
+var objectId = context.getVariable("objectId");
+
+//if objectId is absent then assign default root
+if(objectId == null || objectId == '')
+{
+  context.setVariable("objectId", "1111")
+}

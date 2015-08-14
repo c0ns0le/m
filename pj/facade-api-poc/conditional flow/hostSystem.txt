@@ -1,0 +1,12 @@
+
+        <Flow name="hostSystem">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>hostSystem</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/host-system&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>

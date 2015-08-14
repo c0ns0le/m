@@ -1,0 +1,128 @@
+try {
+	var customerId = context.getVariable('customerId');
+
+//hitting cutomer service
+var url = 'http://t-mobile-prod.apigee.net/customer/' + customerId;
+var req = httpClient.get(url);
+
+    req.waitForComplete();
+
+    if (!req.isSuccess()) {
+        throw 'Error contacting Customer Core API web service';
+    }
+
+    // We got a response. Parse the JSON into a JavaScript object.
+    customerResponseJSON = req.getResponse().content.asJSON;
+
+    if (req.getResponse().status != '200') {
+        throw 'Error returned from Customer Core API service: ' + req.getResponse().content;
+    }
+
+    //hitting financial Account Core API service
+	url = 'http://t-mobile-prod.apigee.net/financialaccount?customerid='+customerId;
+    req = httpClient.get(url);
+
+    req.waitForComplete();
+
+    if (!req.isSuccess()) {
+        throw 'Error contacting financial Core API service';
+    }
+    financialAcctResponseJSON = req.getResponse().content.asJSON;
+
+    if (req.getResponse().status != '200') {
+        throw 'Error returned from Financial Account Core API  service: ' + req.getResponse().content;
+    }
+    
+   //hitting linOfService Core API service
+	url = 'http://t-mobile-prod.apigee.net/lineofservice/1/';
+    req = httpClient.get(url);
+
+    req.waitForComplete();
+
+    if (!req.isSuccess()) {
+        throw 'Error contacting lineOfService Core API service';
+    }
+    lineOfServResponseJSON = req.getResponse().content.asJSON;
+
+    if (req.getResponse().status != '200') {
+        throw 'Error returned from LineOfService Core API  service: ' + req.getResponse().content;
+    }
+	
+    // Final assembly of the JSON object
+var coreCustomer = customerResponseJSON[0];
+var customer = {};
+
+
+//customer.repId = context.getVariable('accesstoken.loggedinUserId');
+customer.id = coreCustomer.customerId;
+customer.firstName = coreCustomer.party.person.personName.firstName;
+customer.middleName = coreCustomer.party.person.personName.middleName[0];
+customer.lastName = coreCustomer.party.person.personName.familyName[0];
+customer.dateOfBirth =	coreCustomer.party.person.birthDate;
+customer.lastFourSsnTin = coreCustomer.party.person.ssn;
+var language = {};
+language.text = coreCustomer.party.person.preferredLanguage.usageContext;;
+customer.language = language;
+customer.email = coreCustomer.party.person.emailCommunication[0].emailAddress;
+
+var addresses = [];
+var addLength = coreCustomer.party.person.addressCommunication.length;
+var i;
+var address;
+for(i=0;i<addLength;i++){
+    address={};
+    address.id =  coreCustomer.party.person.addressCommunication[i].id;
+    address.type = coreCustomer.party.person.addressCommunication[i].address.addressFormatType;
+    address.addressLine1 = coreCustomer.party.person.addressCommunication[i].address.addressLine1;
+    address.addressLine2 = coreCustomer.party.person.addressCommunication[i].address.addressLine2;
+    address.cityName = coreCustomer.party.person.addressCommunication[i].address.cityName;
+    address.stateCode = coreCustomer.party.person.addressCommunication[i].address.stateCode;
+    address.zip = coreCustomer.party.person.addressCommunication[i].address.postalCode;
+    address.zipExt = coreCustomer.party.person.addressCommunication[i].address.postalCodeExtension;
+    address.default = coreCustomer.party.person.addressCommunication[i].preference.preferred;
+    addresses.push(address);
+}
+
+customer.addresses = addresses;
+//context.proxyResponse.content = JSON.stringify(customer);
+
+//hitting financial Account Core API service
+
+
+var FinancialAccount = financialAcctResponseJSON;
+var accounts = [];
+var acctLen = FinancialAccount.length;
+
+var account;
+  var lines = [];
+var line;
+  var lineofservice = lineOfServResponseJSON;
+   for(i=0;i<acctLen;i++){
+   
+        account={};
+        account.id = FinancialAccount[i].financialAccountId;
+        account.type = FinancialAccount[i].accountType.typeCode;
+        account.category = FinancialAccount[i].billingMethod;
+        account.name = FinancialAccount[i].accountName;
+         
+        var lineofserviceLen = lineofservice.length;
+       for(i=0;i<lineofserviceLen;i++){
+         line = {};
+            line.id = lineofservice[i].lineOfServiceId;
+            //line.msisdn = lineofservice.networkResource[0].mobileNumber;
+            line.lineType = lineofservice[i].lineType;
+    
+               lines.push(line);
+      }
+      account.lines = lines;
+       accounts.push(account);
+  }
+
+customer.accounts = accounts;
+context.proxyResponse.content = JSON.stringify(customer);
+
+} catch (err) {
+
+    // Handle any error that may have happened previously by generating a response
+    response.content.asJSON.error = err;
+}

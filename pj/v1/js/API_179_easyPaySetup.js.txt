@@ -1,0 +1,16 @@
+var customerId = context.getVariable("customerId");
+var accountId = context.getVariable("accountId");
+var setupID = context.getVariable("setupID");
+
+if(setupID!=null && setupID!='')
+{
+  if(customerId=='12345'&&accountId=='55555'&&(setupID=='123321'||setupID=='654321'))
+  {
+  context.setVariable("objectId",setupID);
+  }
+}
+else if(customerId=='55555'&&accountId=='12345667')
+{
+  context.setVariable("objectId",'000000');
+}
+ 

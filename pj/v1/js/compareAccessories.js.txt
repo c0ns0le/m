@@ -1,0 +1,8 @@
+var reqPayLoad = context.targetRequest.body.asJSON
+
+if(reqPayLoad!=null && reqPayLoad.ids=='123450, 123451, 123452, 123453'){ 
+    context.setVariable("objectId", "111111");
+}else{
+    context.setVariable("objectId", "0000");
+}
+

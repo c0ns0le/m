@@ -1,0 +1,19 @@
+var services = context.getVariable('services');
+var url = services.core + '/customer?lastname=smurf&msisdn=012345678911&offset=df&limit=fd';
+
+//var body = request.content.asJSON;
+//var req = new Request(url,'GET',{},JSON.stringify(body));
+var res = httpClient.get(url); 
+
+res.waitForComplete();
+res = res.getResponse();
+
+var result = {};
+
+if(res.isSuccess()) {
+  result = res.content.asJSON;
+}
+
+response.status.code = res.status;
+
+context.proxyResponse.content = JSON.stringify(result);

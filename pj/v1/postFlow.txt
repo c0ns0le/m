@@ -1,0 +1,31 @@
+
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <FaultRules/>
+                <Name>getMock</Name>
+                <Condition>(objectId != null and dataType != null)</Condition>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>getMockResponse</Name>
+                <Condition>(objectId != null and dataType != null)</Condition>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>setMockResponse</Name>
+                <Condition>(objectId != null and dataType != null)</Condition>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>APIFaultResponse</Name>
+                <Condition>(objectId != null and dataType != null and mockData == null)</Condition>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>add-cors</Name>
+                <Condition>request.verb != "OPTIONS"</Condition>
+            </Step>
+        </Response>
+    </PostFlow>

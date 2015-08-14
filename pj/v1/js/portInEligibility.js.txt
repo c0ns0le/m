@@ -1,0 +1,30 @@
+var request_payload = '';
+if(context.getVariable('request.content')!=null&&context.getVariable('request.content')!='')
+{
+request_payload = JSON.parse(context.getVariable('request.content'));
+}
+
+//var request_payload = JSON.parse(context.getVariable('request.content'));
+
+ if(request_payload.msisdns!=null)
+ {
+     if(request_payload.msisdns.length==1)
+      {
+      context.setVariable("objectId", request_payload.msisdns[0]);
+      }
+      else if(request_payload.msisdns.length>1)
+     {
+      context.setVariable("objectId", "0000000000");
+     }
+ }
+else
+{
+      if(request_payload.length==1)
+      {
+      context.setVariable("objectId", request_payload[0]);
+      }
+      else if(request_payload.length>1)
+     {
+      context.setVariable("objectId", "0000000001");
+     }
+}

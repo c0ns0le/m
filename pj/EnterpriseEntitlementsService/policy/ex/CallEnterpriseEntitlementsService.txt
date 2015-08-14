@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="CallEnterpriseEntitlementsService">
+    <DisplayName>CallEnterpriseEntitlementsService</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Request clearPayload="false" variable="callout.request">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Set>
+
+    <Payload contentType="text/xml">
+
+      
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdo="http://retail.tmobile.com/sdo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdo:userProfilesAndPermissionsRequest>
+         <sdo:header rspServiceVersion="1.4.0">
+            <sdo:partnerId>RETAILDIRECT</sdo:partnerId>
+            <sdo:partnerTransactionId>1234567</sdo:partnerTransactionId>
+            <sdo:partnerTimestamp>2015-01-13T00:00:00</sdo:partnerTimestamp>
+            <sdo:application>/API</sdo:application>
+
+            <!--Optional:-->
+            <sdo:storeId>{request.queryparam.store_id}</sdo:storeId>
+            <sdo:dealerCode>1234567</sdo:dealerCode>
+            <!--Optional:-->
+            <sdo:rspTransactionId>Test</sdo:rspTransactionId>
+            <!--Optional:-->
+            <sdo:authenticatedId>Test</sdo:authenticatedId>
+         </sdo:header>
+         <sdo:userId>{request.queryparam.user_id}</sdo:userId>
+      </sdo:userProfilesAndPermissionsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+      
+      
+  </Payload>
+  <Verb>POST</Verb>
+  <Path/>
+</Set>
+    </Request>
+    <Response>callout.response</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+      
+     <!--- <URL>http://httpbin.org/post</URL> -->
+      <URL>http://206.29.165.26:8444/ess/EnterpriseEntitlementsService</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

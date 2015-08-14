@@ -1,0 +1,12 @@
+
+        <Flow name="authorizeCardPayment">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>authorizeCardPayment</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/authorize-card-payment&quot;) and (request.verb = &quot;POST&quot;)</Condition>
+        </Flow>

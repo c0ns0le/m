@@ -1,0 +1,19 @@
+var request_payload = '';
+if(context.getVariable('request.content')!=null&&context.getVariable('request.content')!='')
+{
+request_payload = JSON.parse(context.getVariable('request.content'));
+}
+
+//var loginname = request_payload.account.login-name;
+var password = request_payload.account.password;
+
+context.setVariable('dataType', 'login');
+
+if(password=='strong-password-you-cant-guess'&&JSON.stringify(request_payload.account).indexOf('"login-name"')>=0&&JSON.stringify(request_payload.account).indexOf('"john.smith@accenture.com"')>=0)
+{
+       context.setVariable("objectId", "logged-in");
+}
+else
+{
+       context.setVariable("objectId", "failure");
+}

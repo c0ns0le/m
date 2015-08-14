@@ -1,0 +1,30 @@
+var request_payload = JSON.parse(context.getVariable('request.content'));
+
+//Setting dataType variable
+context.setVariable("dataType", "EasyPaySetup");
+
+//Getting length of device array in JSON payload
+var easyPayType=request_payload.paymentMethod.type;
+var easyPayRefNumber=request_payload.paymentMethod.refNumber;
+
+//Condition check to set objectId if easy pay type is new credit card
+if((easyPayType=="credit card") && (easyPayRefNumber==null || easyPayRefNumber=="")) {
+    var cardNumber=request_payload.paymentMethod.cardNumber;
+	context.setVariable("objectId", cardNumber);
+}
+//Condition check to set objectId if easy pay type is existing credit card
+else if(easyPayType=="credit card" && easyPayRefNumber!="") {    
+	context.setVariable("objectId", easyPayRefNumber);
+}
+
+//Condition check to set objectId if easy pay type is new checking account
+else if((easyPayType=="checking account") && (easyPayRefNumber==null || easyPayRefNumber=="")) {
+    var accountNumber=request_payload.paymentMethod.accountNumber;
+	context.setVariable("objectId", JSON.stringify(accountNumber));
+}
+//Condition check to set objectId if easy pay type is existing checking account
+else if(easyPayType=="checking account" && easyPayRefNumber!="") {    
+	context.setVariable("objectId", easyPayRefNumber); 
+}
+
+

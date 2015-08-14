@@ -1,0 +1,10 @@
+ var sim = context.targetRequest.body.asJSON.SIM
+var sim1 = context.getVariable("SIM");
+
+if(sim=='1234567891011121314151' && sim1=='1234567891011121314151'){
+  context.setVariable("objectId", "1234567891011121314151");
+}else if(sim=='123454444011121314151' && sim1=='123454444011121314151'){
+  context.setVariable("objectId", "123454444011121314151");
+}else{
+  context.setVariable("objectId", "");
+}

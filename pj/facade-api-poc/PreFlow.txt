@@ -1,0 +1,14 @@
+
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <FaultRules/>
+                <Name>setting</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>getUrlVars</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>

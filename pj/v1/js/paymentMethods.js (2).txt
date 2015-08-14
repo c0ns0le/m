@@ -1,0 +1,9 @@
+var reqPayLoad = context.targetRequest.body.asJSON
+
+if(reqPayLoad!=null){
+  if(reqPayLoad.paymentMethod=='card' && reqPayLoad.cardNumber=='4111111111111111'){
+    	context.setVariable("objectId", "4111111111111111");
+  }else if(reqPayLoad.paymentMethod=='bankAccount' && reqPayLoad.accountNumber=='281792735555'){
+    	context.setVariable("objectId", "281792735555");
+  }
+}

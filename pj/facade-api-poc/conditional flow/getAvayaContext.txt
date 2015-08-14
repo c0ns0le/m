@@ -1,0 +1,12 @@
+
+        <Flow name="getAvayaContext">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>getAvayaContext</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/avaya-context&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>

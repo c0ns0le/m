@@ -1,0 +1,12 @@
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractFromResponse">
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">callout.response</Source>
+    <XMLPayload>
+        <Variable name="dealerCode" type="string">
+            <XPath>/*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='userProfilesAndPermissionsResponse']/*[local-name()='header']/*[local-name()='dealerCode']</XPath>
+        </Variable>
+       <Variable name="userEntitlementsBlock" type="nodeset">
+         <XPath>/*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='userProfilesAndPermissionsResponse']/*[local-name()='userEntitlements']</XPath>
+        </Variable>
+    </XMLPayload>
+</ExtractVariables>

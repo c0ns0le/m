@@ -1,0 +1,8 @@
+var msisdn=context.getVariable("request.queryparam.msisdn");
+var ban=context.getVariable("request.queryparam.ban");
+if(msisdn!=null && msisdn!='' && ban!=null && ban!=''){
+  context.setVariable("objectId", "12345");  
+}else{
+  context.setVariable("objectId", "000");  
+}
+context.setVariable("dataType","getEmployeeLineDesignation");

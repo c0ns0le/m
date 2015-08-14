@@ -1,0 +1,8 @@
+var msisdn = context.proxyRequest.queryParams['msisdn'];
+
+
+if(msisdn == '4235234522') {
+  response.content = '{"response" : "redirectToQv", "oam_cookie":"234jkhlk2342343", "BAN":"12312", "MSISDN": "4235234522"}';
+} else {
+ response.content = '{"response" : "processInRebellion" , "dataCenterSegmentationId" : "titan"}'; 
+}

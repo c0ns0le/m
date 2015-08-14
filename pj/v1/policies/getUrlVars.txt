@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="getUrlVars">
+    <DisplayName>getUrlVars</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <URIPath name="name">
+        <Pattern ignoreCase="true">/customers/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/account/eligibility/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/devices</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/requests</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/summary</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/billing-request</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/carts/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/extended-payment-schedules/{objectId}/activities</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}/prepaid-topup</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/jump-eligibility</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}/web-guard-settings</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}/easy-pay-setup</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/line-authorization</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}/payment-methods</Pattern>
+        <Pattern ignoreCase="true">/customer/{objectId}/cancellation/balanceDue</Pattern>
+        <Pattern ignoreCase="true">/promotions/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/lines/{lineId}/activation</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}/easy-pay-setup</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/easy-pay-setup/{objectId}/cancellation</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/carts/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerID}/accounts/{accountID}/lines/{lineID}/devices/{deviceID}/quote-and-fulfillment</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/general-profile</Pattern>
+        <Pattern ignoreCase="true">/account/{objectId}/paymentInformation</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/extended-payment-schedules/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerID}/accounts/{accountID}/lines/{lineID}/devices/{objectId}/insurance-claim</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountID}/extended-payment-schedule/offers</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/cancellation/resumption</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}/extended-payment-schedules</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/payment-arrangements</Pattern>
+        <Pattern ignoreCase="true">/rateplans/{ratePlanId}</Pattern>
+        <Pattern ignoreCase="true">/dataplans/{dataPlanId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/lines/{lineId}</Pattern>
+        <Pattern ignoreCase="true">/serviceplans/{servicePlanId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/lines/{lineId}/claim-info</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/easy-pay-setup/{setupID}</Pattern>
+        <Pattern ignoreCase="true">/customer/{customerId}/device/tradeInEligibility</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerID}/accounts/{objectId}/manage-profile</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/payment-methods/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/payments</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/verification</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/carts/{id}</Pattern>
+        <Pattern ignoreCase="true">/customers/{id}/devices/trade-in-quote</Pattern>
+        <Pattern ignoreCase="true">/cancellation/offers/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerID}/accounts/{accountID}/extended-payment-schedules/{objectId}/over-payment</Pattern>
+        <Pattern ignoreCase="true">/authenticate/{objectId}/securityQuestions</Pattern>
+        <Pattern ignoreCase="true">/customer/{objectId}/cancellations</Pattern>
+        <Pattern ignoreCase="true">/customer/{customerId}/cancellations/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/payment-arrangements/{paymentArrangementId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/cancellation/offers</Pattern>
+        <Pattern ignoreCase="true">/authenticate/forgotPassword/{loginName}</Pattern>
+        <Pattern ignoreCase="true">/device/validateSIM/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/account/lineEligibility/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/plans/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerID}/accounts/{objectId}/billing-profile</Pattern>
+        <Pattern ignoreCase="true">/products/accessories/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/lineAuthorization</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}/credit-summary</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/php-service-prices</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/credit-check</Pattern>
+        <Pattern ignoreCase="true">/stores/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/odaLoginInfo</Pattern>
+        <Pattern ignoreCase="true">/stores/{storeId}/terminals/{terminalId}/tills/{tillId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/data-plan-prices</Pattern>
+      	<Pattern ignoreCase="true">/account/{SIM}</Pattern>
+        <Pattern ignoreCase="true">/orders/{objectId}</Pattern>
+      	<Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/lines/{lineId}/suggestions</Pattern>
+      	<Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}/employee-line-designation</Pattern>
+        <Pattern ignoreCase="true">/customers/{objectId}/lines</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{accountId}/eip</Pattern>
+      	<Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}/scheduled-payments</Pattern>
+        <Pattern ignoreCase="true">/devices/{objectId}</Pattern>
+      	<Pattern ignoreCase="true">/authorizedCredits/{objectId}</Pattern>
+        <Pattern ignoreCase="true">/customers/{customerId}/accounts/{objectId}/cancellationSettlements</Pattern>
+      	<Pattern ignoreCase="true">/customers/{customerID}/accounts/{objectId}/paymentOffers</Pattern> 
+      	<Pattern ignoreCase="true">/customers/{customerID}/accounts/{objectId}/pastDueDetails</Pattern>    
+       </URIPath>
+    <QueryParam name="zCode">
+        <Pattern ignoreCase="true">{zipCode}</Pattern>
+    </QueryParam>
+</ExtractVariables>

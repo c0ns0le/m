@@ -1,0 +1,16 @@
+
+//Grabbing value of query param 'make' from URL
+var make = context.proxyRequest.queryParams['make'].toLowerCase();
+
+//Setting dataType
+context.setVariable('dataType','deviceTradeInQuestions');
+
+
+//Condition check depending upon make passed in 
+if (make=='apple') {
+ 	 context.setVariable('objectId', '0001');
+}
+
+else {
+  context.setVariable('objectId', '0002');
+}

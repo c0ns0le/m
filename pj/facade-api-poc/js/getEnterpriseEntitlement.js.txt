@@ -1,0 +1,15 @@
+
+var storeId = context.getVariable('request.queryparam.storeId');
+var loggedinUserId = context.getVariable('loggedinUserId');
+var url = 'http://t-mobile-test.apigee.net/enterpriseentitlementsservice/callout?user_id=' + loggedinUserId + '&store_id=' + storeId;
+
+var request = httpClient.get(url);
+request.waitForComplete();
+
+var entitlement = request.getResponse().content.asJSON;
+var response = context.proxyResponse.content.asJSON;
+
+entitlement.user.accessToken = response.access_token;
+
+context.proxyResponse.content = JSON.stringify(entitlement);
+

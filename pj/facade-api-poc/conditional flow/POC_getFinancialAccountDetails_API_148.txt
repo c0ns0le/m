@@ -1,0 +1,12 @@
+
+        <Flow name="POC_getFinancialAccountDetails_API_148">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>getAccountEIPCreditClass</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/customers/{customerId}/accounts/{accountId}/credit-summary&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>

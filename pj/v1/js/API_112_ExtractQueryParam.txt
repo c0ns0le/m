@@ -1,0 +1,5 @@
+//Grabbing value of query param 'imei' from URL
+var imei = context.proxyRequest.queryParams['imei'];
+
+context.setVariable("dataType", "validateImei");
+context.setVariable("objectId", imei);

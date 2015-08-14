@@ -1,0 +1,12 @@
+
+        <Flow name="POC_getCustomerAccount_API_203">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>getGeneralProfile</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/customers/{customerId}/general-profile&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>

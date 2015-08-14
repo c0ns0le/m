@@ -1,0 +1,12 @@
+
+        <Flow name="POC_updateCustomer_API_204">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>updateGeneralProfile</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/customers/{customerId}/general-profile&quot;) and (request.verb = &quot;POST&quot;)</Condition>
+        </Flow>

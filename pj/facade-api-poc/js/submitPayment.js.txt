@@ -1,0 +1,5 @@
+var result = request.content.asJSON;
+result.success = true;
+result.transactionNumber = '30xk3=xjkaMNR';
+
+context.proxyResponse.content = JSON.stringify(result);

@@ -1,0 +1,19 @@
+var type=context.getVariable("request.queryparam.type");
+var taxId=context.getVariable("request.queryparam.taxId");
+var name=context.getVariable("request.queryparam.name");
+var page=context.getVariable("request.queryparam.page");
+var offset=context.getVariable("request.queryparam.offset");
+
+context.setVariable("dataType","search");
+
+if(type!=null) {
+  if (taxId!=null){
+ 	context.setVariable("objectId",taxId);
+  }else if(name!=null && page==null && offset==null){
+	context.setVariable("objectId",name);
+  }else if(name!=null && page!=null && offset!=null){
+  	  if(page ==2 && offset == 10){
+  	  context.setVariable("objectId",name);
+ 	 }
+  } 
+}

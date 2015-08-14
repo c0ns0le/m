@@ -1,0 +1,16 @@
+
+        <Flow name="authenticate">
+            <Description/>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>exchangeAuthCode</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>getBigAccessTokenOAuth</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/authenticate&quot;) and (request.verb = &quot;POST&quot;)</Condition>
+        </Flow>

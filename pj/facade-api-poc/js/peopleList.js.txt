@@ -1,0 +1,16 @@
+try
+{
+var url = "https://api.usergrid.com/louis.lim5/sandbox/mocks?ql=select * where id='001' and dataType='people'";
+
+var req = httpClient.get(url);
+req.waitForComplete();
+var response = req.getResponse().content.asJSON.entities[0].mockData;
+
+context.proxyResponse.content = JSON.stringify(response);
+
+} 
+catch (err) 
+{
+    // Handle any error that may have happened previously by generating a response
+    response.content.asJSON.error = err;
+}

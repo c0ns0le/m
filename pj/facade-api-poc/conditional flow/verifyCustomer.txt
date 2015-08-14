@@ -1,0 +1,12 @@
+
+        <Flow name="verifyCustomer">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>verifyCustomer</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/customers/{customerId}/verification&quot;) and (request.verb = &quot;POST&quot;)</Condition>
+        </Flow>

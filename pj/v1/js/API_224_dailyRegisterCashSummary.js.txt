@@ -1,0 +1,18 @@
+//query parameter
+var storeID=context.getVariable("request.queryparam.storeID");
+var summarydate=context.getVariable("request.queryparam.date");
+
+context.setVariable("dataType","dailyRegisterCashSummary");
+
+if((storeID != null) && (summarydate != null)){
+  
+ 		var summaryDateArr = summarydate.split("-");
+  		var summaryDateYear = summaryDateArr[0];
+  		var summaryDateMonth = summaryDateArr[1];
+  		var summaryDateDay = summaryDateArr[2];
+  
+  		var objId = storeID.concat(summaryDateYear, summaryDateMonth, summaryDateDay);
+  
+		context.setVariable("objectId",objId);
+	
+    }

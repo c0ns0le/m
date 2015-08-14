@@ -1,0 +1,73 @@
+var reqPayLoad = context.targetRequest.body.asJSON
+if(reqPayLoad!=null){
+	if(reqPayLoad.imei!=null && reqPayLoad.serialNumber==null && reqPayLoad.sku==null){
+		if(reqPayLoad.imei=='354904008327814'){
+			context.setVariable("objectId", "001");
+		}else if (reqPayLoad.imei=='354904118327814'){
+			context.setVariable("objectId", "004");
+		}else if (reqPayLoad.imei=='001687513259884'){
+			context.setVariable("objectId", "005");
+		}else if (reqPayLoad.imei=='555178267899614'){
+			context.setVariable("objectId", "006");
+		}else if (reqPayLoad.imei=='312547899517423'){
+			context.setVariable("objectId", "007");
+		}else if (reqPayLoad.imei=='314875562017400'){
+			context.setVariable("objectId", "008");
+		}else if (reqPayLoad.imei=='479003655217498'){
+			context.setVariable("objectId", "009");
+		}else if (reqPayLoad.imei=='400496884784375'){
+			context.setVariable("objectId", "010");
+		}else if (reqPayLoad.imei=='032662079838898'){
+			context.setVariable("objectId", "011");
+		}else if (reqPayLoad.imei=='175427417313178'){
+			context.setVariable("objectId", "012");
+		}else if (reqPayLoad.imei=='909780795737938'){
+			context.setVariable("objectId", "013");
+		}else if (reqPayLoad.imei=='535934655968759'){
+			context.setVariable("objectId", "014");
+		}else if (reqPayLoad.imei=='380332443958271'){
+			context.setVariable("objectId", "015");
+		}else if (reqPayLoad.imei=='229936044654371'){
+			context.setVariable("objectId", "016");
+		}else if (reqPayLoad.imei=='380332443958274'){
+			context.setVariable("objectId", "029");
+		}else if (reqPayLoad.imei=='789452231450103'){
+			context.setVariable("objectId", "030");
+        }else if(reqPayLoad.imei=='535934655968752'){
+            context.setVariable("objectId", "031");
+        }else if(reqPayLoad.imei=='356489052784746'){
+            context.setVariable("objectId", "29");
+        }
+	}else if (reqPayLoad.imei==null && reqPayLoad.serialNumber!=null && reqPayLoad.sku==null && reqPayLoad.serialNumber=='1BCC5FDF'){
+		context.setVariable("objectId", "002");
+	}else if(reqPayLoad.imei==null && reqPayLoad.serialNumber==null && reqPayLoad.sku!=null )
+	{
+		if(reqPayLoad.sku=='12345678' && reqPayLoad.carrier=='ATT' && reqPayLoad.deviceMake=='Samsung' && reqPayLoad.deviceModel=='Galaxy Note 3'){
+		context.setVariable("objectId", "017");
+		}else if(reqPayLoad.sku=='34345678' && reqPayLoad.carrier=='ATT' && reqPayLoad.deviceMake=='Samsung' && reqPayLoad.deviceModel=='Galaxy S4'){ 
+			context.setVariable("objectId", "018");
+		}else if(reqPayLoad.sku=='12345678' && reqPayLoad.carrier=='ATT' && reqPayLoad.deviceMake=='iPhone' && reqPayLoad.deviceModel=='4S'){ 
+			context.setVariable("objectId", "019");
+		}else if(reqPayLoad.sku=='34345678' && reqPayLoad.carrier=='ATT' && reqPayLoad.deviceMake=='iPhone' && reqPayLoad.deviceModel=='5'){ 
+			context.setVariable("objectId", "020");
+		}else if(reqPayLoad.sku=='12345678' && reqPayLoad.carrier=='Verizon' && reqPayLoad.deviceMake=='Samsung' && reqPayLoad.deviceModel=='Galaxy Note 3'){ 
+			context.setVariable("objectId", "021");
+		}else if(reqPayLoad.sku=='34345678' && reqPayLoad.carrier=='Verizon' && reqPayLoad.deviceMake=='Samsung' && reqPayLoad.deviceModel=='Galaxy S4'){ 
+			context.setVariable("objectId", "022");
+		}else if(reqPayLoad.sku=='12345678' && reqPayLoad.carrier=='Verizon' && reqPayLoad.deviceMake=='iPhone' && reqPayLoad.deviceModel=='4S'){ 
+			context.setVariable("objectId", "023");
+		}else if(reqPayLoad.sku=='34345678' && reqPayLoad.carrier=='Verizon' && reqPayLoad.deviceMake=='iPhone' && reqPayLoad.deviceModel=='5'){ 
+			context.setVariable("objectId", "024");
+		}else if(reqPayLoad.sku=='12345678' && reqPayLoad.carrier=='T-Mobile' && reqPayLoad.deviceMake=='iPhone' && reqPayLoad.deviceModel=='4S'){ 
+			context.setVariable("objectId", "025");
+		}else if(reqPayLoad.sku=='34345678' && reqPayLoad.carrier=='T-Mobile' && reqPayLoad.deviceMake=='iPhone' && reqPayLoad.deviceModel=='5'){ 
+			context.setVariable("objectId", "026");
+		}else if(reqPayLoad.sku=='12345678' && reqPayLoad.carrier=='T-Mobile' && reqPayLoad.deviceMake=='Samsung' && reqPayLoad.deviceModel=='Galaxy Note 3'){ 
+			context.setVariable("objectId", "027");
+		}else if(reqPayLoad.sku=='34345678' && reqPayLoad.carrier=='T-Mobile' && reqPayLoad.deviceMake=='Samsung' && reqPayLoad.deviceModel=='Galaxy S4'){ 
+			context.setVariable("objectId", "028");
+		}
+	}else if(reqPayLoad.imei==null && reqPayLoad.serialNumber==null && reqPayLoad.sku==null){
+		context.setVariable("objectId", "003");
+	}
+}

@@ -1,0 +1,12 @@
+
+        <Flow name="getCustomerAccount">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>getCustomerAccount</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/customers/{customerId}/accounts&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>

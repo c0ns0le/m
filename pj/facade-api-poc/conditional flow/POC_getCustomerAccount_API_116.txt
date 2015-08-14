@@ -1,0 +1,12 @@
+
+        <Flow name="POC_getCustomerAccount_API_116">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>customerSummary</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;/customers/{id}/summary&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>

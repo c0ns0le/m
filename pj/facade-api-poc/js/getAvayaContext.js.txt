@@ -1,0 +1,12 @@
+/*var url = 'http://10.158.156.10/services/CSScreenPop/cs/pop/context/?id=' + context.proxyRequest.queryParams['id'] + '&format=json';
+
+var req = httpClient.get(url); 
+req.waitForComplete();
+
+response.content = req.getResponse().content;
+
+
+*/
+//http://10.158.156.10/services/CSScreenPop/cs/pop/context/?id=115126000000999%20&format=json
+
+response.content = '{"IVR_state-call_type":"SPEAK_FREELY","susp_reason":"0","segment":"A","take_ctrl":"0","disconnect_reason":"0","Validation":"N","DNIS":"5222080","correlation_id":"151237944","ExitCount":"01","Validation_Type_RSL":"0","ANI":"5555","supported_or_unsupported":"8","RSA_Station_ID":"000","LstPrmpt":"PS1150","XfrReason":"R","DealerID":"0000000","phone_model":"002","cancel_reason_code":"00","cust_color":"0","lang_pref":"1","EndPtCode":"T","suncom_indicator":"0","PrevSkill":"000","cust_val":"B","BAN_Segment":"0","SOC_Indicator":"0","device":"0","survey_indicator":"N","SiteID":"000","payment_arrangement":"0","ANIMatch":"F","past_due_indicator":"0","Test_In_IVR_Indicator":"0","mobile":"4252236628"}';

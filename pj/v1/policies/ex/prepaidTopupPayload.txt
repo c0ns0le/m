@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="prepaidTopupPayload">
+    <DisplayName>prepaidTopupPayload</DisplayName>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="type">
+   			<JSONPath>$.type</JSONPath>
+        </Variable>
+        <Variable name="autopayEnabled">
+            <JSONPath>$.autopayEnabled</JSONPath>
+        </Variable>
+        <Variable name="paygoMinimumFunds">
+            <JSONPath>$.paygoMinimumFunds</JSONPath>
+        </Variable>
+        <Variable name="fundsRequired">
+            <JSONPath>$.fundsRequired</JSONPath>
+        </Variable>
+        <Variable name="fundsAvailable">
+            <JSONPath>$.fundsAvailable</JSONPath>
+        </Variable>
+        <Variable name="amount">
+            <JSONPath>$.amount</JSONPath>
+        </Variable>
+        <Variable name="paymentStartDate">
+            <JSONPath>$.paymentStartDate</JSONPath>
+        </Variable>
+        <Variable name="paymentDueDate">
+            <JSONPath>$.paymentDueDate</JSONPath>
+        </Variable>
+        <Variable name="additionalFunds">
+            <JSONPath>$.additionalFunds</JSONPath>
+        </Variable>
+        <Variable name="frequencyType">
+            <JSONPath>$.frequency.type</JSONPath>
+        </Variable>
+        <Variable name="frequencyStartDate">
+            <JSONPath>$.frequency.startDate</JSONPath>
+        </Variable>
+        <Variable name="frequencyFirstDate">
+            <JSONPath>$.frequency.firstDate</JSONPath>
+        </Variable>
+        <Variable name="frequencySecondDate">
+            <JSONPath>$.frequency.secondDate</JSONPath>
+        </Variable>
+        <Variable name="frequencyDayOfWeek">
+            <JSONPath>$.frequency.dayOfWeek</JSONPath>
+        </Variable>
+        <Variable name="lastPaymentDate">
+            <JSONPath>$.lastPayment.lastPaymentDate</JSONPath>
+        </Variable>
+        <Variable name="lastPaymentAmount">
+            <JSONPath>$.lastPayment.amount</JSONPath>
+        </Variable>
+        <Variable name="paymentMethodType">
+            <JSONPath>$.paymentMethod.type</JSONPath>
+        </Variable>
+        <Variable name="paymentMethodCardNumber">
+            <JSONPath>$.paymentMethod.cardNumber</JSONPath>
+        </Variable>
+        <Variable name="paymentMethodZipcode">
+            <JSONPath>$.paymentMethod.zipcode</JSONPath>
+        </Variable>
+        <Variable name="paymentMethodRefNumber">
+            <JSONPath>$.paymentMethod.refNumber</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">request</Source>
+</ExtractVariables>

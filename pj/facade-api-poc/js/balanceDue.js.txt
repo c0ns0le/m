@@ -1,0 +1,46 @@
+/*
+var customerId = context.getVariable('customerId');
+var url = 'http://t-mobile-test.apigee.net/tmo/v1/customer/'+customerId+'/cancellation/balanceDue';
+
+var headers = {'Content-Type' : 'application/json'};
+var reqPayLoad = context.targetRequest.body.asJSON
+var myRequest = new Request(url,"POST",headers,JSON.stringify(reqPayLoad));
+var req = httpClient.send(myRequest);
+
+
+//var req = httpClient.get(url);
+req.waitForComplete();
+var response = req.getResponse().content.asJSON;
+
+
+context.proxyResponse.content = JSON.stringify(response); 
+*/
+
+var customerId = context.getVariable('customerId');
+
+var url1 = 'http://t-mobile-prod.apigee.net/financialaccount/'+customerId;
+
+
+var headers = {'Content-Type' : 'application/json'};
+var reqPayLoad = context.targetRequest.body.asJSON
+var myRequest = new Request(url1,"POST",headers,JSON.stringify(reqPayLoad));
+var req1 = httpClient.send(myRequest);
+
+req1.waitForComplete();
+var responsePayload = req1.getResponse().content.asJSON;
+
+var finalResponse = {};
+
+var balance = {};
+
+balance.total = responsePayload;
+//balance.depositHeld = responsePayload;
+//balance.interest = responsePayload;
+//balance.current = responsePayload;
+//balance.EIP = responsePayload;
+//balance.MRC = responsePayload;
+
+
+finalResponse.balance = balance;
+
+context.proxyResponse.content = JSON.stringify(finalResponse);

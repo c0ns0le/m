@@ -1,0 +1,6 @@
+var servicePlanId=context.getVariable("servicePlanId");
+
+if(servicePlanId!=null)
+{
+  context.setVariable("objectId", servicePlanId);
+}
